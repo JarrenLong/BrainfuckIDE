@@ -160,6 +160,7 @@ namespace LongTech.BrainFuckIDE
 
       byte cValue = 0;
       string outStr = "";
+      SizeF fontSize = new SizeF(0, 0);
 
       for (int x = 0; x < 16; x++)
       {
@@ -192,7 +193,8 @@ namespace LongTech.BrainFuckIDE
               throw new Exception();
           }
 
-          g.DrawString(outStr, Font, brush, new PointF(0, 0));
+          fontSize = g.MeasureString(outStr, Font);
+          g.DrawString(outStr, Font, brush, new PointF(x * xOff + (xOff / 2) - (fontSize.Width / 2), y * yOff + (yOff / 2) - (fontSize.Height / 2)));
         }
       }
     }
