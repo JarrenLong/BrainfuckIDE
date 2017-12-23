@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
 
 namespace LongTech.BrainFuckIDE
 {
@@ -42,7 +36,6 @@ namespace LongTech.BrainFuckIDE
     private MemoryStream mMemStream = new MemoryStream();
     private byte[] mLastUpdate = new byte[256];
 
-
     /// <summary>
     /// 
     /// </summary>
@@ -61,6 +54,8 @@ namespace LongTech.BrainFuckIDE
 
         ////Populate with page 1 data
         //linkLabelFirst_LinkClicked(null, null);
+        SetPageText();
+        Refresh();
       }
     }
 
@@ -83,51 +78,64 @@ namespace LongTech.BrainFuckIDE
     private void ToolStripButtonFirst_Click(object sender, EventArgs e)
     {
       mPageID = 0;
-      Invalidate();
+      SetPageText();
+      Refresh();
     }
 
     private void ToolStripButtonBack_Click(object sender, EventArgs e)
     {
       if (mPageID > 0) mPageID--;
       else mPageID = mPages - 1;
-      Invalidate();
+      SetPageText();
+      Refresh();
     }
 
     private void ToolStripButtonNext_Click(object sender, EventArgs e)
     {
       if (mPageID < mPages - 1) mPageID++;
       else mPageID = 0;
-      Invalidate();
+      SetPageText();
+      Refresh();
     }
 
     private void ToolStripButtonLast_Click(object sender, EventArgs e)
     {
       mPageID = mPages - 1;
-      Invalidate();
+      SetPageText();
+      Refresh();
     }
 
     private void aSCIIToolStripMenuItem_Click(object sender, EventArgs e)
     {
       mDisplayMode = DisplayMode.ASCII;
-      Invalidate();
+      SetPageText();
+      Refresh();
     }
 
     private void hexadecimalToolStripMenuItem_Click(object sender, EventArgs e)
     {
       mDisplayMode = DisplayMode.Hexadecimal;
-      Invalidate();
+      SetPageText();
+      Refresh();
     }
 
     private void decimalToolStripMenuItem_Click(object sender, EventArgs e)
     {
       mDisplayMode = DisplayMode.Decimal;
-      Invalidate();
+      SetPageText();
+      Refresh();
     }
 
     private void octalToolStripMenuItem_Click(object sender, EventArgs e)
     {
       mDisplayMode = DisplayMode.Octal;
-      Invalidate();
+      SetPageText();
+      Refresh();
+    }
+
+    private void SetPageText()
+    {
+      toolStripLabelPage.Text = string.Format("Page {0} of {1}", mPageID + 1, mPages);
     }
 
     private Pen border = new Pen(Color.Black, 1);
