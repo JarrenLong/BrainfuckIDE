@@ -76,6 +76,12 @@
     <Compile Include="BrainfuckCodeEditor.Designer.cs">
       <DependentUpon>BrainfuckCodeEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="MemoryView2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MemoryView2.Designer.cs">
+      <DependentUpon>MemoryView2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -89,6 +95,9 @@
   <ItemGroup>
     <EmbeddedResource Include="BrainfuckCodeEditor.resx">
       <DependentUpon>BrainfuckCodeEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemoryView2.resx">
+      <DependentUpon>MemoryView2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
