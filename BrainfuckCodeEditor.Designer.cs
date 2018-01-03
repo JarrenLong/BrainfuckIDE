@@ -244,13 +244,13 @@ namespace LongTech.BrainFuckIDE
       // 
       // OpenFileDialog1
       // 
-      this.OpenFileDialog1.DefaultExt = "bf";
-      this.OpenFileDialog1.Filter = "Brainfuck Script|*.bf|All Files|*.*";
+      this.OpenFileDialog1.DefaultExt = "b";
+      this.OpenFileDialog1.Filter = "Brainfuck Script|*.b|Brainfuck Script|*.bf|All Files|*.*";
       // 
       // SaveFileDialog1
       // 
-      this.SaveFileDialog1.DefaultExt = "bf";
-      this.SaveFileDialog1.Filter = "Brainfuck Script|*.bf|All Files|*.*";
+      this.SaveFileDialog1.DefaultExt = "b";
+      this.SaveFileDialog1.Filter = "Brainfuck Script|*.b|Brainfuck Script|*.bf|All Files|*.*";
       // 
       // SplitContainer1
       // 
@@ -317,6 +317,7 @@ namespace LongTech.BrainFuckIDE
       this.MemoryView1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.MemoryView1.Location = new System.Drawing.Point(0, 0);
       this.MemoryView1.Memory = ((System.IO.MemoryStream)(resources.GetObject("MemoryView1.Memory")));
+      this.MemoryView1.ActiveCell = -1;
       this.MemoryView1.Name = "MemoryView1";
       this.MemoryView1.Size = new System.Drawing.Size(242, 395);
       this.MemoryView1.TabIndex = 0;

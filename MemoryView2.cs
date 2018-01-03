@@ -59,6 +59,16 @@ namespace LongTech.BrainFuckIDE
       }
     }
 
+    private int mLastActiveCell = -1, activeCell = -1;
+    /// <summary>
+    /// 
+    /// </summary>
+    public int ActiveCell
+    {
+      get { return activeCell; }
+      set { mLastActiveCell = activeCell; activeCell = value; }
+    }
+
     /// <summary>
     /// 
     /// </summary>
@@ -140,6 +150,7 @@ namespace LongTech.BrainFuckIDE
 
     private Pen border = new Pen(Color.Black, 1);
     private Brush brush = new SolidBrush(Color.Black);
+    private Brush activeCellBrush = new SolidBrush(Color.LightSalmon);
 
     private void panel1_Paint(object sender, PaintEventArgs e)
     {
@@ -174,8 +185,18 @@ namespace LongTech.BrainFuckIDE
       {
         for (int y = 0; y < 16; y++)
         {
-          // Draw the cell border
-          g.DrawRectangle(border, new Rectangle(x * xOff, y * yOff, xOff, yOff));
+          // Draw the cell border if the active cell has changed
+          //if (activeCell != mLastActiveCell)
+          //{
+          if (ActiveCell == start + y * 16 + x)
+            g.FillRectangle(activeCellBrush, new Rectangle(x * xOff, y * yOff, xOff, yOff));
+          else
+            g.DrawRectangle(border, new Rectangle(x * xOff, y * yOff, xOff, yOff));
+          //}
+
+          //// No sense in redrawing it if it hasn't changed
+          //if (data[y * 16 + x] == mLastUpdate[y * 16 + x])
+          //  continue;
 
           // Draw the current character
           cValue = data[y * 16 + x];

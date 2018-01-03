@@ -37,6 +37,7 @@ namespace LongTech.BrainFuckIDE
       }
 
       MemoryView1.Memory = new MemoryStream(b);
+      MemoryView1.ActiveCell = 0;
     }
 
     private void ToolStripButtonNew_Click(object sender, EventArgs e)
@@ -69,6 +70,7 @@ namespace LongTech.BrainFuckIDE
 
       //Reset memory view to a bunch of nothing
       MemoryView1.Memory = new MemoryStream(new byte[mMemorySize]);
+      MemoryView1.ActiveCell = -1;
     }
 
     private void ToolStripButtonOpen_Click(object sender, EventArgs e)
@@ -256,8 +258,12 @@ namespace LongTech.BrainFuckIDE
 
       int len = code.Length;
       byte buf = 0;
+      bool refresh = false;
+
       for (int i = 0; i < len; i++)
       {
+        refresh = false;
+
         if (breakpoints.Contains(i))
         {
           breakpoints.Remove(i);
@@ -275,9 +281,9 @@ namespace LongTech.BrainFuckIDE
           {
             case '>': bf.IncPtr(); break;
             case '<': bf.DecPtr(); break;
-            case '+': bf.Inc(); break;
-            case '-': bf.Dec(); break;
-            case '.': bf.Out(ref buf); UpdateOutput(((char)buf).ToString()); break;
+            case '+': bf.Inc(); refresh = true; break;
+            case '-': bf.Dec(); refresh = true; break;
+            case '.': bf.Out(ref buf); UpdateOutput(((char)buf).ToString()); refresh = true; break;
             case ',':
               {
                 //buf = (byte)PortableLib.Log.Read();
@@ -289,6 +295,8 @@ namespace LongTech.BrainFuckIDE
                     bf.In(ref buf);
                   }
                 }
+
+                refresh = true;
               }
               break;
             case '[': bf.StartLoop(i); break;
@@ -296,14 +304,30 @@ namespace LongTech.BrainFuckIDE
             default: break;
           }
 
-          MemoryView1.Memory = new MemoryStream(bf.Memory);
-          // Give the MemoryView a chance to update
-          Thread.Sleep(10);
+          if (refresh)
+          {
+            RefreshMemoryView(bf.PtrLocation, bf.Memory);
+
+            // Give the MemoryView a chance to update
+            Thread.Sleep(10);
+          }
         }
         catch { }
       }
 
       ToolStripStatusLabel1.Text = "End of script reached.";
+    }
+
+    private void RefreshMemoryView(int ptr, byte[] mem)
+    {
+      if (InvokeRequired)
+      {
+        BeginInvoke((Action)(() => { RefreshMemoryView(ptr, mem); }));
+        return;
+      }
+
+      MemoryView1.Memory = new MemoryStream(mem);
+      MemoryView1.ActiveCell = ptr;
     }
 
     /// <summary>
