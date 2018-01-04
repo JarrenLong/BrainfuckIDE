@@ -52,10 +52,8 @@ namespace LongTech.BrainFuckIDE
           mPages++;
         }
 
-        ////Populate with page 1 data
-        //linkLabelFirst_LinkClicked(null, null);
-        SetPageText();
-        Refresh();
+        // Populate with page 1 data
+        ToolStripButtonFirst_Click(null, EventArgs.Empty);
       }
     }
 
@@ -115,28 +113,28 @@ namespace LongTech.BrainFuckIDE
       Refresh();
     }
 
-    private void aSCIIToolStripMenuItem_Click(object sender, EventArgs e)
+    private void ASCIIToolStripMenuItem_Click(object sender, EventArgs e)
     {
       mDisplayMode = DisplayMode.ASCII;
       SetPageText();
       Refresh();
     }
 
-    private void hexadecimalToolStripMenuItem_Click(object sender, EventArgs e)
+    private void HexadecimalToolStripMenuItem_Click(object sender, EventArgs e)
     {
       mDisplayMode = DisplayMode.Hexadecimal;
       SetPageText();
       Refresh();
     }
 
-    private void decimalToolStripMenuItem_Click(object sender, EventArgs e)
+    private void DecimalToolStripMenuItem_Click(object sender, EventArgs e)
     {
       mDisplayMode = DisplayMode.Decimal;
       SetPageText();
       Refresh();
     }
 
-    private void octalToolStripMenuItem_Click(object sender, EventArgs e)
+    private void OctalToolStripMenuItem_Click(object sender, EventArgs e)
     {
       mDisplayMode = DisplayMode.Octal;
       SetPageText();
@@ -154,11 +152,10 @@ namespace LongTech.BrainFuckIDE
 
     private void PaintView(object sender, PaintEventArgs e)
     {
-      var g = e.Graphics;
-      var topOffset = toolStrip1.Location.Y + toolStrip1.Height;
-      var xOff = (Width - Location.X) / 16;
-      var yOff = (Height - topOffset - Location.Y) / 16;
-
+      Graphics g = e.Graphics;
+      int topOffset = toolStrip1.Location.Y + toolStrip1.Height;
+      int xOff = (Width - Location.X) / 16;
+      int yOff = (Height - topOffset - Location.Y) / 16;
 
       byte[] data = new byte[256];
       long start = mPageID * 256, count = 256;
@@ -186,16 +183,10 @@ namespace LongTech.BrainFuckIDE
         for (int y = 0; y < 16; y++)
         {
           // Draw the cell border if the active cell has changed
-          //if (activeCell != mLastActiveCell)
-          //{
           g.DrawRectangle(border, new Rectangle(x * xOff, y * yOff + topOffset, xOff, yOff));
+          // If the active cell has changed, fill it in
           if (ActiveCell == start + y * 16 + x)
             g.FillRectangle(activeCellBrush, new Rectangle(x * xOff + 1, y * yOff + topOffset + 1, xOff - 1, yOff - 1));
-          //}
-
-          //// No sense in redrawing it if it hasn't changed
-          //if (data[y * 16 + x] == mLastUpdate[y * 16 + x])
-          //  continue;
 
           // Draw the current character
           cValue = data[y * 16 + x];

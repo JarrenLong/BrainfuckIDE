@@ -144,28 +144,28 @@
       this.aSCIIToolStripMenuItem.Name = "aSCIIToolStripMenuItem";
       this.aSCIIToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
       this.aSCIIToolStripMenuItem.Text = "ASCII";
-      this.aSCIIToolStripMenuItem.Click += new System.EventHandler(this.aSCIIToolStripMenuItem_Click);
+      this.aSCIIToolStripMenuItem.Click += new System.EventHandler(this.ASCIIToolStripMenuItem_Click);
       // 
       // hexadecimalToolStripMenuItem
       // 
       this.hexadecimalToolStripMenuItem.Name = "hexadecimalToolStripMenuItem";
       this.hexadecimalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
       this.hexadecimalToolStripMenuItem.Text = "Hexadecimal";
-      this.hexadecimalToolStripMenuItem.Click += new System.EventHandler(this.hexadecimalToolStripMenuItem_Click);
+      this.hexadecimalToolStripMenuItem.Click += new System.EventHandler(this.HexadecimalToolStripMenuItem_Click);
       // 
       // decimalToolStripMenuItem
       // 
       this.decimalToolStripMenuItem.Name = "decimalToolStripMenuItem";
       this.decimalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
       this.decimalToolStripMenuItem.Text = "Decimal";
-      this.decimalToolStripMenuItem.Click += new System.EventHandler(this.decimalToolStripMenuItem_Click);
+      this.decimalToolStripMenuItem.Click += new System.EventHandler(this.DecimalToolStripMenuItem_Click);
       // 
       // octalToolStripMenuItem
       // 
       this.octalToolStripMenuItem.Name = "octalToolStripMenuItem";
       this.octalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
       this.octalToolStripMenuItem.Text = "Octal";
-      this.octalToolStripMenuItem.Click += new System.EventHandler(this.octalToolStripMenuItem_Click);
+      this.octalToolStripMenuItem.Click += new System.EventHandler(this.OctalToolStripMenuItem_Click);
       // 
       // MemoryView2
       // 
