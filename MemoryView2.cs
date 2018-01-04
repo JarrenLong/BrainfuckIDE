@@ -157,7 +157,7 @@ namespace LongTech.BrainFuckIDE
       var g = e.Graphics;
       var topOffset = toolStrip1.Location.Y + toolStrip1.Height;
       var xOff = (Width - Location.X) / 16;
-      var yOff = (Height - Location.Y) / 16;
+      var yOff = (Height - topOffset - Location.Y) / 16;
 
 
       byte[] data = new byte[256];
