@@ -43,7 +43,6 @@
       this.hexadecimalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.decimalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.octalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.panel1 = new System.Windows.Forms.Panel();
       this.toolStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -168,24 +167,13 @@
       this.octalToolStripMenuItem.Text = "Octal";
       this.octalToolStripMenuItem.Click += new System.EventHandler(this.octalToolStripMenuItem_Click);
       // 
-      // panel1
-      // 
-      this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.panel1.Location = new System.Drawing.Point(0, 31);
-      this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(256, 256);
-      this.panel1.TabIndex = 2;
-      this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-      // 
       // MemoryView2
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.Controls.Add(this.panel1);
       this.Controls.Add(this.toolStrip1);
       this.Name = "MemoryView2";
+      this.Paint += new System.Windows.Forms.PaintEventHandler(this.PaintView);
       this.Size = new System.Drawing.Size(256, 287);
       this.toolStrip1.ResumeLayout(false);
       this.toolStrip1.PerformLayout();
@@ -203,7 +191,6 @@
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     private System.Windows.Forms.ToolStripButton ToolStripButtonNext;
     private System.Windows.Forms.ToolStripButton ToolStripButtonLast;
-    private System.Windows.Forms.Panel panel1;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
     private System.Windows.Forms.ToolStripMenuItem aSCIIToolStripMenuItem;

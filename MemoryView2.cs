@@ -152,12 +152,12 @@ namespace LongTech.BrainFuckIDE
     private Brush brush = new SolidBrush(Color.Black);
     private Brush activeCellBrush = new SolidBrush(Color.LightSalmon);
 
-    private void panel1_Paint(object sender, PaintEventArgs e)
+    private void PaintView(object sender, PaintEventArgs e)
     {
       var g = e.Graphics;
-      var bounds = panel1.ClientRectangle;
-      var xOff = (bounds.Width - bounds.X) / 16;
-      var yOff = (bounds.Height - bounds.Y) / 16;
+      var topOffset = toolStrip1.Location.Y + toolStrip1.Height;
+      var xOff = (Width - Location.X) / 16;
+      var yOff = (Height - Location.Y) / 16;
 
 
       byte[] data = new byte[256];
@@ -188,10 +188,9 @@ namespace LongTech.BrainFuckIDE
           // Draw the cell border if the active cell has changed
           //if (activeCell != mLastActiveCell)
           //{
+          g.DrawRectangle(border, new Rectangle(x * xOff, y * yOff + topOffset, xOff, yOff));
           if (ActiveCell == start + y * 16 + x)
-            g.FillRectangle(activeCellBrush, new Rectangle(x * xOff, y * yOff, xOff, yOff));
-          else
-            g.DrawRectangle(border, new Rectangle(x * xOff, y * yOff, xOff, yOff));
+            g.FillRectangle(activeCellBrush, new Rectangle(x * xOff + 1, y * yOff + topOffset + 1, xOff - 1, yOff - 1));
           //}
 
           //// No sense in redrawing it if it hasn't changed
@@ -223,7 +222,7 @@ namespace LongTech.BrainFuckIDE
           }
 
           fontSize = g.MeasureString(outStr, Font);
-          g.DrawString(outStr, Font, brush, new PointF(x * xOff + (xOff / 2) - (fontSize.Width / 2), y * yOff + (yOff / 2) - (fontSize.Height / 2)));
+          g.DrawString(outStr, Font, brush, new PointF(x * xOff + (xOff / 2) - (fontSize.Width / 2), y * yOff + (yOff / 2) - (fontSize.Height / 2) + topOffset));
         }
       }
     }
