@@ -315,7 +315,18 @@ namespace LongTech.BrainFuckIDE
         catch { }
       }
 
-      ToolStripStatusLabel1.Text = "End of script reached.";
+      SetStatus("End of script reached.");
+    }
+
+    private void SetStatus(string msg)
+    {
+      if (InvokeRequired)
+      {
+        BeginInvoke((Action)(() => { SetStatus(msg); }));
+        return;
+      }
+
+      ToolStripStatusLabel1.Text = msg;
     }
 
     private void RefreshMemoryView(int ptr, byte[] mem)
