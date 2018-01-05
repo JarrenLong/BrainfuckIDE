@@ -57,7 +57,7 @@ namespace LongTech.BrainFuckIDE
       this.SplitContainer2 = new System.Windows.Forms.SplitContainer();
       this.TextBoxCode = new LongTech.UI.Controls.DebuggingControl();
       this.TextBoxOutput = new LongTech.UI.Controls.TextBox();
-      this.MemoryView1 = new MemoryView2();
+      this.MemoryView1 = new LongTech.UI.Controls.MemoryView();
       this.ToolStripButtonNew = new System.Windows.Forms.ToolStripButton();
       this.ToolStrip1.SuspendLayout();
       this.StatusStrip1.SuspendLayout();
@@ -313,7 +313,7 @@ namespace LongTech.BrainFuckIDE
       // MemoryView1
       // 
       this.MemoryView1.AutoScroll = true;
-      this.MemoryView1.DisplayAs = MemoryView2.DisplayMode.ASCII;
+      this.MemoryView1.DisplayAs = MemoryView.DisplayMode.ASCII;
       this.MemoryView1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.MemoryView1.Location = new System.Drawing.Point(0, 0);
       this.MemoryView1.Memory = ((System.IO.MemoryStream)(resources.GetObject("MemoryView1.Memory")));
@@ -380,9 +380,9 @@ namespace LongTech.BrainFuckIDE
     private System.Windows.Forms.ToolStripButton ToolStripStepForward;
     private System.Windows.Forms.ToolStripButton ToolStripButtonStepOut;
     private System.Windows.Forms.SplitContainer SplitContainer1;
-    private MemoryView2 MemoryView1;
+    private LongTech.UI.Controls.MemoryView MemoryView1;
     private System.Windows.Forms.SplitContainer SplitContainer2;
-    private TextBox TextBoxOutput;
+    private LongTech.UI.Controls.TextBox TextBoxOutput;
     private System.Windows.Forms.ToolStripProgressBar ToolStripProgressBar1;
     private System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel1;
     private System.Windows.Forms.ToolStripSeparator ToolStripSeparator3;
