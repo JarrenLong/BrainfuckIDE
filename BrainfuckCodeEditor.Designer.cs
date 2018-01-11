@@ -30,9 +30,9 @@ namespace LongTech.BrainFuckIDE
     /// </summary>
     private void InitializeComponent()
     {
-      this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BrainfuckCodeEditor));
       this.ToolStrip1 = new System.Windows.Forms.ToolStrip();
+      this.ToolStripButtonNew = new System.Windows.Forms.ToolStripButton();
       this.ToolStripButtonOpen = new System.Windows.Forms.ToolStripButton();
       this.ToolStripButtonSave = new System.Windows.Forms.ToolStripButton();
       this.ToolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -58,7 +58,6 @@ namespace LongTech.BrainFuckIDE
       this.TextBoxCode = new LongTech.UI.Controls.DebuggingControl();
       this.TextBoxOutput = new LongTech.UI.Controls.TextBox();
       this.MemoryView1 = new LongTech.UI.Controls.MemoryView();
-      this.ToolStripButtonNew = new System.Windows.Forms.ToolStripButton();
       this.ToolStrip1.SuspendLayout();
       this.StatusStrip1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.SplitContainer1)).BeginInit();
@@ -95,6 +94,16 @@ namespace LongTech.BrainFuckIDE
       this.ToolStrip1.Size = new System.Drawing.Size(624, 25);
       this.ToolStrip1.TabIndex = 0;
       this.ToolStrip1.Text = "ToolStrip1";
+      // 
+      // ToolStripButtonNew
+      // 
+      this.ToolStripButtonNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.ToolStripButtonNew.Image = global::LongTech.BrainFuckIDE.Properties.Resources.document_new;
+      this.ToolStripButtonNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+      this.ToolStripButtonNew.Name = "ToolStripButtonNew";
+      this.ToolStripButtonNew.Size = new System.Drawing.Size(23, 22);
+      this.ToolStripButtonNew.Text = "New";
+      this.ToolStripButtonNew.Click += new System.EventHandler(this.ToolStripButtonNew_Click);
       // 
       // ToolStripButtonOpen
       // 
@@ -312,25 +321,19 @@ namespace LongTech.BrainFuckIDE
       // 
       // MemoryView1
       // 
-      this.MemoryView1.AutoScroll = true;
-      this.MemoryView1.DisplayAs = MemoryView.DisplayMode.ASCII;
-      this.MemoryView1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.MemoryView1.Location = new System.Drawing.Point(0, 0);
-      this.MemoryView1.Memory = ((System.IO.MemoryStream)(resources.GetObject("MemoryView1.Memory")));
       this.MemoryView1.ActiveCell = -1;
+      this.MemoryView1.ActiveCellColor = System.Drawing.Color.LightSalmon;
+      this.MemoryView1.AutoScroll = true;
+      this.MemoryView1.CanIndexFormSettings = false;
+      this.MemoryView1.CellBorderColor = System.Drawing.Color.Black;
+      this.MemoryView1.DisplayAs = LongTech.UI.Controls.MemoryView.DisplayMode.ASCII;
+      this.MemoryView1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.MemoryView1.FontColor = System.Drawing.Color.Black;
+      this.MemoryView1.Location = new System.Drawing.Point(0, 0);
+      this.MemoryView1.Memory = null;
       this.MemoryView1.Name = "MemoryView1";
       this.MemoryView1.Size = new System.Drawing.Size(242, 395);
       this.MemoryView1.TabIndex = 0;
-      // 
-      // ToolStripButtonNew
-      // 
-      this.ToolStripButtonNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.ToolStripButtonNew.Image = global::LongTech.BrainFuckIDE.Properties.Resources.document_new;
-      this.ToolStripButtonNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-      this.ToolStripButtonNew.Name = "ToolStripButtonNew";
-      this.ToolStripButtonNew.Size = new System.Drawing.Size(23, 22);
-      this.ToolStripButtonNew.Text = "New";
-      this.ToolStripButtonNew.Click += new System.EventHandler(this.ToolStripButtonNew_Click);
       // 
       // BrainfuckCodeEditor
       // 

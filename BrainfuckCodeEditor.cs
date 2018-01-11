@@ -24,7 +24,7 @@ namespace LongTech.BrainFuckIDE
 
     private void Editor_Load(object sender, EventArgs e)
     {
-      byte[] b = new byte[mMemorySize];
+      object[] b = new object[mMemorySize];
       bool dir = false;
 
       for (int i = 0; i < mMemorySize; i++)
@@ -36,7 +36,7 @@ namespace LongTech.BrainFuckIDE
         }
       }
 
-      MemoryView1.Memory = new MemoryStream(b);
+      MemoryView1.Memory = b;
       MemoryView1.ActiveCell = 0;
     }
 
@@ -69,7 +69,7 @@ namespace LongTech.BrainFuckIDE
       mIsModified = false;
 
       //Reset memory view to a bunch of nothing
-      MemoryView1.Memory = new MemoryStream(new byte[mMemorySize]);
+      MemoryView1.Memory = new object[mMemorySize];
       MemoryView1.ActiveCell = -1;
     }
 
@@ -257,7 +257,7 @@ namespace LongTech.BrainFuckIDE
       string code = TextBoxCode.Text;//GetCode();
 
       int len = code.Length;
-      byte buf = 0;
+      object buf = 0;
       bool refresh = false;
 
       for (int i = 0; i < len; i++)
@@ -329,7 +329,7 @@ namespace LongTech.BrainFuckIDE
       ToolStripStatusLabel1.Text = msg;
     }
 
-    private void RefreshMemoryView(int ptr, byte[] mem)
+    private void RefreshMemoryView(int ptr, object[] mem)
     {
       if (InvokeRequired)
       {
@@ -337,7 +337,7 @@ namespace LongTech.BrainFuckIDE
         return;
       }
 
-      MemoryView1.Memory = new MemoryStream(mem);
+      //MemoryView1.Memory = new MemoryStream(mem);
       MemoryView1.ActiveCell = ptr;
     }
 
