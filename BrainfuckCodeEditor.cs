@@ -24,7 +24,7 @@ namespace LongTech.BrainFuckIDE
 
     private void Editor_Load(object sender, EventArgs e)
     {
-      object[] b = new object[mMemorySize];
+      ulong[] b = new ulong[mMemorySize];
       bool dir = false;
 
       for (int i = 0; i < mMemorySize; i++)
@@ -69,7 +69,7 @@ namespace LongTech.BrainFuckIDE
       mIsModified = false;
 
       //Reset memory view to a bunch of nothing
-      MemoryView1.Memory = new object[mMemorySize];
+      MemoryView1.Memory = new ulong[mMemorySize];
       MemoryView1.ActiveCell = -1;
     }
 
@@ -329,7 +329,7 @@ namespace LongTech.BrainFuckIDE
       ToolStripStatusLabel1.Text = msg;
     }
 
-    private void RefreshMemoryView(int ptr, object[] mem)
+    private void RefreshMemoryView(int ptr, ulong[] mem)
     {
       if (InvokeRequired)
       {
@@ -337,7 +337,7 @@ namespace LongTech.BrainFuckIDE
         return;
       }
 
-      //MemoryView1.Memory = new MemoryStream(mem);
+      MemoryView1.Memory = mem;
       MemoryView1.ActiveCell = ptr;
     }
 
