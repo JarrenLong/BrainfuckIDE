@@ -1,4 +1,5 @@
 ﻿using LongTech.Core;
+using LongTech.Portable;
 using LongTech.Protocol.BrainFuck;
 using LongTech.UI.Forms;
 using System;
@@ -347,6 +348,8 @@ namespace LongTech.BrainFuckIDE
     [STAThread]
     static void Main()
     {
+      PortableLib.Initialize();
+
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
       Application.Run(new BrainfuckCodeEditor());
