@@ -300,10 +300,8 @@ namespace LongTech.BrainFuckIDE
       // 
       // TextBoxCode
       // 
-      this.TextBoxCode.Breakpoints = ((System.Collections.Generic.List<int>)(resources.GetObject("TextBoxCode.Breakpoints")));
       this.TextBoxCode.CanIndexFormSettings = false;
       this.TextBoxCode.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.TextBoxCode.IsModified = false;
       this.TextBoxCode.Location = new System.Drawing.Point(0, 0);
       this.TextBoxCode.Name = "TextBoxCode";
       this.TextBoxCode.Size = new System.Drawing.Size(376, 305);
