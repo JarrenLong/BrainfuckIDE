@@ -1,25 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrainfuckIDE", "BrainfuckIDE.csproj", "{510931F9-C33B-4730-AA11-F286A5CFEFB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrainfuckIDE", "BrainfuckIDE.csproj", "{0E44BDFE-15EB-462D-A57E-B6FDCE32E543}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug-NET45|Any CPU = Debug-NET45|Any CPU
-		Release-NET45|Any CPU = Release-NET45|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{510931F9-C33B-4730-AA11-F286A5CFEFB6}.Debug-NET45|Any CPU.ActiveCfg = Debug-NET45|Any CPU
-		{510931F9-C33B-4730-AA11-F286A5CFEFB6}.Debug-NET45|Any CPU.Build.0 = Debug-NET45|Any CPU
-		{510931F9-C33B-4730-AA11-F286A5CFEFB6}.Release-NET45|Any CPU.ActiveCfg = Release-NET45|Any CPU
-		{510931F9-C33B-4730-AA11-F286A5CFEFB6}.Release-NET45|Any CPU.Build.0 = Release-NET45|Any CPU
+		{0E44BDFE-15EB-462D-A57E-B6FDCE32E543}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E44BDFE-15EB-462D-A57E-B6FDCE32E543}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E44BDFE-15EB-462D-A57E-B6FDCE32E543}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E44BDFE-15EB-462D-A57E-B6FDCE32E543}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {9B305D01-D528-4B89-A3B4-69BE5B646CFA}
+		SolutionGuid = {2D53582B-C25C-42D3-9D60-D14180B0EE38}
 	EndGlobalSection
 EndGlobal
